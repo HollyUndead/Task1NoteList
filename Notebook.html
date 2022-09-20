@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="./style.css">  
+      <template id="cont">
+        <img src="" alt="" id="categoryIMG" width="100px" height="100px">
+        <p id="name">a</p>
+        <p id="created">f</p>
+        <p id="category">s</p>
+        <p id="content">g</p>
+        <p id="dates">y</p>
+        <button id="btnEditNote" onclick="editNote(parentElement.id)"><img src="./edit.png" alt="" ></button>
+        <button id="btnArchiveNote" onclick="toArchive(parentElement.id)"><img src="./archive.png" alt=""></button>
+        <button id="btnDeleteNote" onclick="deleteNote(parentElement.id)"><img src="./delete.png" alt=""></button>
+      </template>
+      
+      <div class="formPopup" id="noteForm">
+        <form action="#" id="form" class="formContainer" method="post">
+          <div>
+            <label for="inputName">Name:</label><br>
+            <input id="inputName" type="text" name="name" required>
+          </div>
+          <div>
+            <label for="inputCategory">Category:</label><br>
+            <select name="inputCategory" id="inputCategory">
+              <option value="Idea">Idea</option>
+              <option value="Random thought">Random thought</option>
+              <option value="Task">Task</option>
+            </select>
+          </div>
+          <div>
+            <label for="inputContent">Content:</label><br>
+            <textarea name="inputContent" id="inputContent" rows="4" cols="50" style="resize: none;" required></textarea>
+          </div>
+
+          <button id="btnSaveEdit" class="btn" style="display: none;">Save Edit</button>
+          <button id="btnSubmit" class="btn">Create note</button>
+          <button id="btnCancel" class="btn">Cancel</button>
+        </form>
+      </div>
+
+    </head>
+    <body>
+      <div id="clearLocal">
+        <button onclick="clearLocal()">Clear local storage</button>
+      </div>
+        <div id="topBar">
+          <p id="ArchiveShowState" style="margin-left: -2.5%; margin-right: -4%;">Active</p>
+          <p style="width: 100px;">Name</p>
+          <p style="width: 75px;">Created</p>
+          <p style="width: 100px;">Category</p>
+          <p style="width: 400px;">Content</p>
+          <p style="width: 100px; text-align: start;">Dates</p>
+          <button id="archiveSwitch" onclick="archiveSwitch()" data-archived="0"><img src="./archive1.png" alt=""></button>
+          <img src="./delete1.png" alt="">
+        </div>
+        <div id="NoteList">
+
+        </div>
+        <div id="forBtn">
+        <button id="btnOpenForm" onclick="openForm()">Create note</button>
+        </div>
+
+        <div id="topBarCounter">
+          <p class="noteCategory">Note Category</p>
+          <p>Active</p>
+          <p class="archived">Archived</p>
+        </div>
+        <div id="IdeaCategory" data-category="Idea" class="categoryDiv">
+          <img src="./idea.png" alt="" id="categoryIMG">
+          <p id="categoryName" class="categoryName">Idea</p>
+          <p id="activeCounter">0</p>
+          <p id="archivedCounter" class="archived">0</p>
+        </div>
+        <div id="RandomThoughtCategory" data-category="Random thought" class="categoryDiv">
+          <img src="./random thoughts.png" alt="" id="categoryIMG">
+          <p id="categoryName" class="categoryName">Random thought</p>
+          <p id="activeCounter">0</p>
+          <p id="archivedCounter" class="archived">0</p>
+        </div>
+        <div id="TaskCategory" data-category="Task" class="categoryDiv">
+          <img src="./task.png" alt="" id="categoryIMG">
+          <p id="categoryName" class="categoryName">task</p>
+          <p id="activeCounter">0</p>
+          <p id="archivedCounter" class="archived">0</p>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
