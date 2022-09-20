@@ -1,0 +1,1 @@
+I add a metod to save note in localStorage.
