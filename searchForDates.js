@@ -7,12 +7,19 @@ function searchForDates(content){
     }
 
     let a =[];
+    let f = /\.|\-|\s|\//;
     while(date.test(str) == true){
         let res = str.match(date)[0];
+        let s = res.split(f)
+        if(s[1].length > 2){
+            s[1] = s[1].slice(-2)
+        }
         str = str.replace(res, '')
+        res = s.join('/')
+        console.log(res)
         a.push(res)
     }
-    let f = /\.|\-|\s/;
+    console.log(a)
     a.forEach((elemet, index) => {
         if(f.test(elemet)==true){
             let b = elemet.split(f)
