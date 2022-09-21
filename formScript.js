@@ -21,6 +21,8 @@ function reset(ev){
 
 function createNote(ev){
     ev.preventDefault();
+    console.log(document.getElementById('inputName').value)
+    console.log(document.getElementById('inputContent').value)
     let note = JSON.parse(JSON.stringify(exp))
     locStor = JSON.parse(localStorage.getItem('noteList'))
     noteCounter++
